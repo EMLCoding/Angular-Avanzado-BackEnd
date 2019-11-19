@@ -1,7 +1,7 @@
 # Angular-Avanzado-BackEnd
 BackEnd curso Angular avanzado - Hecho con Node JS y Mongo DB
 
-NODE JS
+# NODE JS
 
 Para crear un proyecto BackEnd de Node lo primero que hay que hacer es crearse una carpeta donde guardar el proyecto y viajar hasta ella en la terminal.
 Luego utilizar el comando: sudo ‘npm init’ . Ir presionando enter para aceptar los nombres y datos que va mostrando.
@@ -58,11 +58,12 @@ Luego en el archivo package.json poner lo siguiente dentro de los scripts:
 
 A partir de ahora hay que lanzar la app con npm Start
 
-CONEXION MONGO DB
+# CONEXION MONGO DB
 Para establecer la conexión con Mongo DB primero hay que instalarlo siguiendo el siguiente manual: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 Luego cada vez que se quiera utilizar hay que levantar el servidor usando ‘sudo Mongo’ y ya se podrá acceder a la base de datos con Robo 3T
 
-INSTALAR MONGOOSE (Librería que permite controlar mejor la BBDD desde el visual studio)
+
+# INSTALAR MONGOOSE (Librería que permite controlar mejor la BBDD desde el visual studio)
 https://mongoosejs.com/docs/index.html
 
 Luego hay que añadir la librería en app.js (visual studio): 
