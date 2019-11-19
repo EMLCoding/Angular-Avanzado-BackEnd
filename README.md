@@ -75,5 +75,10 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
     console.log('MongoDB: \x1b[32m%s\x1b[0m', 'online');
 })
 
+# Peticiones a BBDD
+Para facilitar la creación de una petición POST a la BBDD se va a utilizar la librería "body parser": https://www.npmjs.com/package/body-parser
+
+
+
 
 
