@@ -78,7 +78,12 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
 # Peticiones a BBDD
 Para facilitar la creación de una petición POST a la BBDD se va a utilizar la librería "body parser": https://www.npmjs.com/package/body-parser
 
+# Mejora para el control de los validadores al hacer peticiones POST a la BBDD
+Instalar lo siguiente en el proyecto: npm install mongoose-unique-validator --save
+Luego en el archivo que queramos de la carpeta "models" hay que utilizar la siguiente línea: var uniqueValidator = require('mongoose-unique-validator'); 
+Y debajo de la creación del esquema poner lo siguiente: usuarioSchema.plugin(uniqueValidator, { message: 'El {PATH} debe de ser único' });
 
-
+# Encriptaciones de contraseñas en la BBDD
+Se puede utilizar una librería para hacer encriptación de una sola vía. https://github.com/dcodeIO/bcrypt.js/blob/master/README.md
 
 
