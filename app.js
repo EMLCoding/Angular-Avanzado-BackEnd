@@ -15,6 +15,7 @@ app.use(bodyParser.json())
 var appRoutes = require('./routes/app'); // Se indica la ruta del archivo que contiene las rutas
 var usuarioRoutes = require('./routes/usuario');
 var loginRoutes = require('./routes/login');
+var hospitalRoutes = require('./routes/hospital');
 
 // Conexión BBDD
 mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) => {
@@ -26,6 +27,7 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
 // Rutas - Aquí irían los archivos de rutas. Las peticiones se hacen en orden según estén escritas a continuación
 app.use('/usuario', usuarioRoutes);
 app.use('/login', loginRoutes);
+app.use('/hospital', hospitalRoutes);
 app.use('/', appRoutes); // Coge las rutas del archivo routes/app.js
 
 // Escuchar peticiones / Escuchar el express. Se pone el puerto y si se quiere un mensaje con las funciones de flecha
