@@ -86,4 +86,9 @@ Y debajo de la creación del esquema poner lo siguiente: usuarioSchema.plugin(un
 # Encriptaciones de contraseñas en la BBDD
 Se puede utilizar una librería para hacer encriptación de una sola vía. https://github.com/dcodeIO/bcrypt.js/blob/master/README.md
 
+# Login + Creación de un token
+Para manejar la creación de un token se va a utilizar la librería jsonwebtoken: https://github.com/auth0/node-jsonwebtoken
 
+La generación de un token en el archivo /routes/login.js
+
+Para comprender el token generado se utiliza esta página: https://jwt.io/
