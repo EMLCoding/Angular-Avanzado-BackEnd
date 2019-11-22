@@ -37,26 +37,40 @@ app.get('/', (req, res, next) => {
         });
     }) */
 
-    // Busca en la tabla usuarios de MongoDB. Es como: SELECT nombre, email, img, role FROM usuarios
-    Usuario.find({}, 'nombre email img role').exec(
-        (err, usuarios) => {
-            // Si se recibe un error...
-            if (err) {
-                return res.status(500).json({
-                    // cuerpo de la respuesta
-                    ok: false,
-                    mensaje: 'Error cargando usuarios de la BBDD',
-                    errors: err
-                });
-            }
+    var desde = req.query.desde || 0; // Se crea una variable, que irá en la url de la petición para indicar a partir de que registro se va a hacer el select
+    // La URL debe ser algo asi '/usuario?desde=5'. Si no se envia nada entonces se guarda con un 0.
+    desde = Number(desde); // Se fuerza a que la variable sea un number
 
-            // Si no se devuelve un error...
-            res.status(200).json({
-                // cuerpo de la respuesta
-                ok: true,
-                usuarios: usuarios // Devuelve un array de todos los usuarios que haya en la BBDD
-            });
-        })
+    // Busca en la tabla usuarios de MongoDB. Es como: SELECT nombre, email, img, role FROM usuarios
+    // skip permite saltar un número de registros empezando por el 0
+    // limit permite indicar el número de registros máximo que va a devolver la petición
+    Usuario.find({}, 'nombre email img role')
+        .skip(desde)
+        .limit(5)
+        .exec(
+            (err, usuarios) => {
+                // Si se recibe un error...
+                if (err) {
+                    return res.status(500).json({
+                        // cuerpo de la respuesta
+                        ok: false,
+                        mensaje: 'Error cargando usuarios de la BBDD',
+                        errors: err
+                    });
+                }
+
+                Usuario.count({}, (err, contador) => {
+                    // Si no se devuelve un error...
+                    res.status(200).json({
+                        // cuerpo de la respuesta
+                        ok: true,
+                        total: contador,
+                        usuarios: usuarios // Devuelve un array de todos los usuarios que haya en la BBDD
+                    });
+                })
+
+
+            })
 });
 
 
