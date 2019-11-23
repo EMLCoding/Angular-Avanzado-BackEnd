@@ -92,3 +92,6 @@ Para manejar la creación de un token se va a utilizar la librería jsonwebtoken
 La generación de un token en el archivo /routes/login.js
 
 Para comprender el token generado se utiliza esta página: https://jwt.io/
+
+# Subida de archivos
+Para la subida de archivos se utiliza una librería llamada express-fileupload: https://github.com/richardgirges/express-fileupload/tree/master/example
