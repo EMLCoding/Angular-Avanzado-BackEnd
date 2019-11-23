@@ -19,6 +19,7 @@ var usuarioSchema = new Schema({
     img: { type: String },
     // default permite añadir un valor por defecto en caso de que no se introduzca nada
     role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos },
+    google: { type: Boolean, default: false }
 });
 
 // Crea el mensaje que se va a mostrar si no se cumple la condición de único. {PATH} = nombre del campo que no cumple con la condición "unique"
