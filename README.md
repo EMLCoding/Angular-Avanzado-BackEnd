@@ -95,3 +95,7 @@ Para comprender el token generado se utiliza esta página: https://jwt.io/
 
 # Subida de archivos
 Para la subida de archivos se utiliza una librería llamada express-fileupload: https://github.com/richardgirges/express-fileupload
+
+# CORS
+Para permitir que se realicen conexiones entre diferentes dominios (vale para 'localhost: X' y 'localhost: Y') hay que configurar las CORS
+Ver app.js

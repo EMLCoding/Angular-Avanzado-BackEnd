@@ -6,6 +6,14 @@ var bodyParser = require('body-parser') // Librería que facilita la creación d
 // Inicializar variables - Donde se utilizan las liberias
 var app = express();
 
+// Habilitar CORS: Para permitir que se hagan conexiones al Back desde el Front
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Acess-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+    next();
+});
+
 // BODY PARSER - Si el back recibe algún objeto permite transformarlo a un formato facil de utilizar por el back
 // Formatos: parse application/x-www-form-urlencoded o application/json
 app.use(bodyParser.urlencoded({ extended: false }))

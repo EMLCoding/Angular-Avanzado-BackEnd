@@ -143,7 +143,7 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 //==============================================================================================
 
 // Se utiliza 'mdAutenticacion.verificaToken' para que comprueba si el usuario tiene un token valido y así podrá hacer la petición
-app.post('/', mdAutenticacion.verificaToken, (req, res) => {
+app.post('/', (req, res) => {
 
     // En body se va a guardar lo que enviemos en el cuerpo de la petición
     var body = req.body; // Esto solo funciona por el body-parser
