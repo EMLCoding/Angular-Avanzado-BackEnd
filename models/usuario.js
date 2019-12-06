@@ -18,7 +18,7 @@ var usuarioSchema = new Schema({
     password: { type: String, required: [true, 'La contraseña es obligatorio'] },
     img: { type: String },
     // default permite añadir un valor por defecto en caso de que no se introduzca nada
-    role: { type: String, required: true, default: 'USER_ROLE', enum: rolesValidos },
+    role: { type: String, required: false, default: 'USER_ROLE', enum: rolesValidos },
     google: { type: Boolean, default: false }
 });
 

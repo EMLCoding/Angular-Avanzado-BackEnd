@@ -44,7 +44,7 @@ app.get('/', (req, res, next) => {
     // Busca en la tabla usuarios de MongoDB. Es como: SELECT nombre, email, img, role FROM usuarios
     // skip permite saltar un número de registros empezando por el 0
     // limit permite indicar el número de registros máximo que va a devolver la petición
-    Usuario.find({}, 'nombre email img role')
+    Usuario.find({}, 'nombre email img role google')
         .skip(desde)
         .limit(5)
         .exec(
