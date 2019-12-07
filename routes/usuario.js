@@ -142,7 +142,6 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 // CREAR UN NUEVO USUARIO
 //==============================================================================================
 
-// Se utiliza 'mdAutenticacion.verificaToken' para que comprueba si el usuario tiene un token valido y así podrá hacer la petición
 app.post('/', (req, res) => {
 
     // En body se va a guardar lo que enviemos en el cuerpo de la petición
