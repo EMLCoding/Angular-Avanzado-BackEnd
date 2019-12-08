@@ -77,7 +77,7 @@ function buscarHospitales(busqueda, expresionRegular) {
     // Crear una nueva promesa
     return new Promise((resolve, reject) => {
 
-        Hospital.find({ nombre: expresionRegular }).populate('usuario', 'nombre email').exec((err, hospitales) => {
+        Hospital.find({ nombre: expresionRegular }).populate('usuario', 'nombre email img').exec((err, hospitales) => {
 
             if (err) {
                 reject('Error al buscar hospitales', err);
@@ -92,14 +92,15 @@ function buscarMedicos(busqueda, expresionRegular) {
 
     return new Promise((resolve, reject) => {
 
-        Medico.find({ nombre: expresionRegular }, (err, medicos) => {
+        Medico.find({ nombre: expresionRegular }).populate('usuario', 'nombre email img').exec(
+            (err, medicos) => {
 
-            if (err) {
-                reject('Error al buscar medicos', err);
-            } else {
-                resolve(medicos);
-            }
-        })
+                if (err) {
+                    reject('Error al buscar medicos', err);
+                } else {
+                    resolve(medicos);
+                }
+            });
     })
 }
 
@@ -107,7 +108,7 @@ function buscarUsuarios(busqueda, expresionRegular) {
 
     return new Promise((resolve, reject) => {
         // Con el 'or' permite buscar en varias columnas de la tabla Usuario
-        Usuario.find({}, 'nombre email role').or([{ nombre: expresionRegular }, { email: expresionRegular }]).exec((err, usuarios) => {
+        Usuario.find({}, 'nombre email role img').or([{ nombre: expresionRegular }, { email: expresionRegular }]).exec((err, usuarios) => {
 
             if (err) {
                 reject('Error al buscar usuarios', err);

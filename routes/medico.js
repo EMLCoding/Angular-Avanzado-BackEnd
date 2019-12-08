@@ -31,6 +31,36 @@ app.get('/', (req, res) => {
 });
 
 //==============================================================================================
+// OBTENER MEDICO
+//==============================================================================================
+app.get('/:id', (req, res) => {
+    var id = req.params.id;
+
+    Medico.findById(id).populate('usuario', 'nombre email img').populate('hospital').exec((err, medico) => {
+        if (err) {
+            return res.status(500).json({
+                ok: false,
+                mensaje: 'Error cargando los datos de la BBDD',
+                error: err
+            })
+        }
+
+        if (!medico) {
+            return res.status(400).json({
+                ok: false,
+                mensaje: 'No existe un médico con ese id',
+                error: err
+            })
+        }
+
+        res.status(200).json({
+            ok: true,
+            medico: medico
+        })
+    })
+})
+
+//==============================================================================================
 // ACTUALIZAR MEDICO
 //==============================================================================================
 
