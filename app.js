@@ -44,7 +44,7 @@ app.use('/hospital', hospitalRoutes);
 app.use('/medico', medicoRoutes);
 app.use('/busqueda', busquedaRoutes);
 app.use('/upload', uploadRoutes);
-app.use('/imagenes', imagenesRoutes);
+app.use('/img', imagenesRoutes);
 app.use('/', appRoutes); // Coge las rutas del archivo routes/app.js
 
 // Escuchar peticiones / Escuchar el express. Se pone el puerto y si se quiere un mensaje con las funciones de flecha

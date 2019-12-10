@@ -77,7 +77,7 @@ app.get('/', (req, res, next) => {
 //==============================================================================================
 // ACTUALIZAR USUARIO
 //==============================================================================================
-app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
+app.put('/:id', [mdAutenticacion.verificaToken, mdAutenticacion.verificaADMIN_ROLE_o_MismoUsuario], (req, res) => {
 
     // Coge el id que viaja en la ruta de la petición PUT
     var id = req.params.id;
@@ -180,7 +180,7 @@ app.post('/', (req, res) => {
 //==============================================================================================
 // ELIMINAR USUARIO
 //==============================================================================================
-app.delete('/:id', mdAutenticacion.verificaToken, (req, res) => {
+app.delete('/:id', [mdAutenticacion.verificaToken, mdAutenticacion.verificaADMIN_ROLE], (req, res) => {
 
     var id = req.params.id;
 
